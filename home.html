@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="carousel/carousel.css">
   </head>
   <body>
     
     <div class="layer">
       <h2>Hello <br />i'am Joseph</h2>
-      <h1>Frontend <br />Developer</h1>
+      <h1>Web<br />Developer</h1>
     </div>
     <section class="section1">
     </section>
@@ -19,18 +20,58 @@
 <section class="section_bio">
 <h1>Where I Came From..</h1>
 <div class="wrapper">
-  <a class="card" href="style.css">
+  <a class="card">
     <!-- <img src="" alt="" /> -->
-    <p></p>
+    <div>
+      <h2>Hello I'am Joseph</h2>
+      <br />
+      <p>
+        Summary
+        A fairly skilled software engineer who has so-so passion for code(not gonna bluff, being sincere is my thing overall). My expertise lies in front-end development and mechatronics, but I'm more into web development now, where I excel in crafting engaging user interfaces using HTML, CSS, and JavaScript.
+        
+        I think I'm more into old-school stuff. Like, no framework, just code with functional programming, it just feels right for me. After trial and error of trying to learn stuff, like PHP, Laravel, Flutter, etc., Javascript and C with no framework suit me the best. Maybe express with nodeJs is okay, though.  
+      
+      </p>
+    </div>
   </a>
-  <a class="card" href="./assets/file/CV.pdf">Download Curricullum Vitae</a>
-  
+
+
+  <a class="card">
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="../assets/img/me_1.jpg" alt="" style="width:100%">
+        <!-- <div class="text">Caption Text</div> -->
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="../assets/img/me_2.jpg" alt="" style="width:100%">
+        <!-- <div class="text">Caption Two</div> -->
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="../assets/img/me_3.jpg" alt="" style="width:100%">
+        <!-- <div class="text">Caption Three</div> -->
+      </div>
+      
+      <button class="prev" onclick="plusSlides(-1)">❮</button>
+      <button class="next" onclick="plusSlides(1)">❯</button>
+      
+      </div>
+    
+
+  </a>
+  <a class="card" target="_blank" rel="noopener noreferrer" href="./assets/file/CV.pdf">Download Curricullum Vitae
+
+</a>
 </div>
 
 </section>
-
     <section class="section_project">
-      <h1>My Projects</h1>
+      <h1>Just Random Stuff</h1>
       <div class="wrapper">
         <a class="card" href="style.css">
           <img src="./assets/img/projec1.png" alt="" />
@@ -60,19 +101,18 @@
     </section>
 
     <section class="section_contact">
-      <h1>Contact Us</h1>
+      <h1>My Contact</h1>
 
       <div class="wrapper">
         <div>
-          <h2>Hello I'am Joseph</h2>
+          <h2></h2>
           <br />
           <p>
-            Summary
-            Skilled Software Engineer who has high passion on code. My expertise lies in front-end development, where I excel in crafting engaging user interfaces using HTML, CSS, and JavaScript.
-            
-            Moreover, my proficiency in React and Next.js empowers me to build dynamic and scalable web applications. On the back-end, I am well-versed in Python, PHP, and MySQL, enabling me to design robust server-side solutions and manage databases efficiently.
-            
-            My ability to adapt and stay updated with the latest technologies makes me a valuable asset in the constantly evolving landscape of full-stack development.
+            Contact(Whatsapp): 081393922953
+            <br>
+            Email: joseputradion@gmail.com
+            <br>
+            Blog:
           </p>
         </div>
         <div class="mapouter">
@@ -100,5 +140,7 @@
         layer.style.left = value + "px"; //70px
       });
     </script>
+
+    <script src="carousel/carousel.js" defer></script>
   </body>
 </html>
