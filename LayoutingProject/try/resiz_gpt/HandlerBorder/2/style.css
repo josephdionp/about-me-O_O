@@ -1,0 +1,45 @@
+#resizable {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 300px; /* Initial width */
+  height: 300px; /* Initial height */
+  background-color: lightblue;
+}
+
+.resize-handle {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.resize-handle.top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Height of the handle */
+  cursor: row-resize;
+}
+
+.resize-handle.right {
+  top: 0;
+  right: 0;
+  width: 6px; /* Width of the handle */
+  height: 100%;
+  cursor: col-resize;
+}
+
+.resize-handle.bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Height of the handle */
+  cursor: row-resize;
+}
+
+.resize-handle.left {
+  top: 0;
+  left: 0;
+  width: 6px; /* Width of the handle */
+  height: 100%;
+  cursor: col-resize;
+}

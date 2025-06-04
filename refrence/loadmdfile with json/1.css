@@ -1,0 +1,27 @@
+
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    nav {
+      width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+    }
+    #content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    a {
+      display: block;
+      padding: 10px 0;
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }

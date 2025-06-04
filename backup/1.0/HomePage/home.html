@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <div class="layer">
+      <h2>Hello <br />i'am Joseph</h2>
+      <h1>Frontend <br />Developer</h1>
+    </div>
+    <section class="section1">
+    </section>
+
+<section class="section_bio">
+<h1>Where I Came From..</h1>
+<div class="wrapper">
+  <a class="card" href="style.css">
+    <!-- <img src="" alt="" /> -->
+    <p></p>
+  </a>
+  <a class="card" href="../assets/file/CV.pdf">Download Curricullum Vitae</a>
+  
+</div>
+
+</section>
+
+    <section class="section_project">
+      <h1>My Projects</h1>
+      <div class="wrapper">
+        <a class="card" href="style.css">
+          <img src="../assets/img/projec1.png" alt="" />
+          <p>Project 1</p>
+        </a>
+        <a class="card" href="#">
+          <img src="../assets/img/projec2.png" alt="" />
+          <p>Project 2</p>
+        </a>
+        <a class="card" href="#">
+          <img src="../assets/img/projec3.png" alt="" />
+          <p>Project 3</p>
+        </a>
+        <a class="card" href="#">
+          <img src="../assets/img/projec4.png" alt="" />
+          <p>Project 4</p>
+        </a>
+        <a class="card" href="#">
+          <img src="../assets/img/projec5.png" alt="" />
+          <p>Project 5</p>
+        </a>
+        <a class="card" href="#">
+          <img src="../assets/img/projec6.png" alt="" />
+          <p>Project 6</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section_contact">
+      <h1>Contact Us</h1>
+
+      <div class="wrapper">
+        <div>
+          <h2>Hello I'am Joseph</h2>
+          <br />
+          <p>
+            Summary
+            Skilled Software Engineer who has high passion on code. My expertise lies in front-end development, where I excel in crafting engaging user interfaces using HTML, CSS, and JavaScript.
+            
+            Moreover, my proficiency in React and Next.js empowers me to build dynamic and scalable web applications. On the back-end, I am well-versed in Python, PHP, and MySQL, enabling me to design robust server-side solutions and manage databases efficiently.
+            
+            My ability to adapt and stay updated with the latest technologies makes me a valuable asset in the constantly evolving landscape of full-stack development.
+          </p>
+        </div>
+        <div class="mapouter">
+            
+          <div class="gmap_canvas">
+            <iframe
+              class="gmap_iframe"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=monas &amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            ></iframe
+            >
+            <!-- <a href="https://strandsgame.net/">Strands Game</a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let layer = document.querySelector(".layer");
+      window.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        layer.style.left = value + "px"; //70px
+      });
+
+
+        let d = new Date();
+      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+    </script>
+  </body>
+</html>
