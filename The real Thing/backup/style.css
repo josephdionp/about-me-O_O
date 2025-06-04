@@ -1,0 +1,81 @@
+ body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+   /* bawah ini tambahan */
+      /* display: inline-block; 
+    border : 1px solid ;
+    width: 100%;
+    overflow-x: hidden; */
+
+
+    }
+
+    /* Floating Nav */
+    #nav-wrapper {
+      position: fixed;
+      top: 20px; /* top-left */
+      left: 20px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.1); /* transparent white */
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 10px;
+      width: 200px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      cursor: move;
+      transition: all 0.3s ease;
+    }
+
+    #nav-wrapper:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    #nav-menu {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    #nav-wrapper:hover #nav-menu {
+      display: flex;
+    }
+
+    nav a {
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: rgba(0, 123, 255, 0.1);
+    }
+
+    #toggle-btn {
+      background: rgba(0, 123, 255, 0.8);
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 8px 12px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+  
+
+    #page-content {
+      padding: 40px;
+    }
+
+    /* Optional: disable text selection for smooth drag */
+    * {
+      user-select: none;
+    }

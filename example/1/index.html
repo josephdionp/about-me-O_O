@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+</head>
+<body>
+  <label for="header-select">Choose a Header:</label>
+  <select id="header-select">
+    <option value="header1.html">Header 1</option>
+    <option value="header2.html">Header 2</option>
+  </select>
+
+  <button onclick="loadHeader()">Load Header</button>
+
+  <div id="header-container"></div>
+
+  <main>
+    <h2>Main Page Content</h2>
+    <p>This content stays the same, but the header can change.</p>
+  </main>
+
+  <script>
+    async function loadHeader() {
+      const selectedFile = document.getElementById('header-select').value;
+      const res = await fetch(selectedFile);
+      const html = await res.text();
+
+      const tempContainer = document.createElement('div');
+      tempContainer.innerHTML = html;
+
+      const template = tempContainer.querySelector('template');
+      const headerContent = template.content.cloneNode(true);
+
+      const container = document.getElementById('header-container');
+      container.innerHTML = ''; // Clear old content
+      container.appendChild(headerContent);
+    }
+
+    // Auto-load default header
+    window.onload = loadHeader;
+  </script>
+</body>
+</html>
