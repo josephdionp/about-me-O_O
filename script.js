@@ -1,36 +1,4 @@
 
-   async function loadTemplate(file, containerId) {
-    const res = await fetch(file);
-    const html = await res.text();
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
-    const template = temp.querySelector('template');
-    const content = template.content.cloneNode(true);
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    container.appendChild(content);
-  }
-
-  function navigate(page) {
-    loadTemplate(page, 'page-content');
-  }
-
-  // Load the page based on URL hash
-  function handleRoute() {
-    const page = location.hash.slice(1) || 'home';
-    navigate(`${page}.html`);
-  }
-
-  window.addEventListener('hashchange', handleRoute);
-  window.addEventListener('DOMContentLoaded', handleRoute);
-
-
-  
-    window.onload = function () {
-      
-      navigate('home.html'); // Explicit default load
-    };
-
     // Draggable nav
     const navWrapper = document.getElementById('nav-wrapper');
     let isDragging = false, offsetX, offsetY;
