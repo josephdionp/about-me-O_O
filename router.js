@@ -37,9 +37,9 @@
 
 
   const routes = {
-  blog: 'blog/blog.html',
-  cv: 'cv/resume.html',
-  about: 'about-me-O_O/about.html',
+  blog: './blog/blog.html',
+  cv: './cv/resume.html',
+  about: './about-me-O_O/about.html',
 };
 
 function router() {
