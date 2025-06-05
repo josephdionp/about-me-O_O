@@ -11,9 +11,9 @@
 //     container.appendChild(content);
 //   }
 
-//   function navigate(page) {
-//     loadTemplate(page, 'page-content');
-//   }
+  function navigate(page) {
+    loadTemplate(page, 'page-content');
+  }
 
 
 
@@ -43,8 +43,8 @@
 };
 
 function router() {
-  const page = location.hash.replace('#', '') || 'home';
-  const path = routes[page];
+  const route = location.hash.replace('#', '') || 'home';
+  const path = routes[route];
   if (path) {
     navigate(path);
   } else {
