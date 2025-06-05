@@ -38,7 +38,7 @@
 
   const routes = {
   blog: './blog/blog.html',
-  cv: './cv/resume.html',
+  resume: './CV/resume.html',
   about: './about-me-O_O/about.html',
 };
 
@@ -46,7 +46,7 @@ function router() {
   const page = location.hash.replace('#', '') || 'home';
   const path = routes[page];
   if (path) {
-    loadPage(path);
+    navigate(path);
   } else {
     document.getElementById('app').innerHTML = '<h2>Page not found</h2>';
   }
