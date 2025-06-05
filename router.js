@@ -26,35 +26,35 @@
 
 
 
-  function handleRoute() {
-    const page = location.hash.slice(1) || 'home';
-    navigate(`${page}.html`);
-  }
-
-  window.addEventListener('hashchange', handleRoute);
-  window.addEventListener('DOMContentLoaded', handleRoute);
-
-
-
-//   const routes = {
-//   blog: 'blog/blog.html',
-//   cv: 'cv/resume.html',
-//   about: 'about-me-O_O/about.html',
-// };
-
-// function router() {
-//   const page = location.hash.replace('#', '') || 'home';
-//   const path = routes[page];
-//   if (path) {
-//     loadPage(path);
-//   } else {
-//     document.getElementById('app').innerHTML = '<h2>Page not found</h2>';
+//   function handleRoute() {
+//     const page = location.hash.slice(1) || 'home';
+//     navigate(`${page}.html`);
 //   }
-// }
+
+//   window.addEventListener('hashchange', handleRoute);
+//   window.addEventListener('DOMContentLoaded', handleRoute);
 
 
-//   window.addEventListener('hashchange', router);
-//   window.addEventListener('DOMContentLoaded', router);
+
+  const routes = {
+  blog: 'blog/blog.html',
+  cv: 'cv/resume.html',
+  about: 'about-me-O_O/about.html',
+};
+
+function router() {
+  const page = location.hash.replace('#', '') || 'home';
+  const path = routes[page];
+  if (path) {
+    loadPage(path);
+  } else {
+    document.getElementById('app').innerHTML = '<h2>Page not found</h2>';
+  }
+}
+
+
+  window.addEventListener('hashchange', router);
+  window.addEventListener('DOMContentLoaded', router);
 
 
 
