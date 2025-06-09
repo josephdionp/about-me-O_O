@@ -86,8 +86,25 @@ async function loadTemplate(file, containerId) {
     }
 }
 
+
+
+
+
+
+// Compute base path dynamically (e.g., '/repo-name/')
+const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
+
 async function navigate(page) {
-    console.log(`Navigating to: ${page}`);
-    await loadTemplate(page, 'page-content');
-    console.log(`Finished loading ${page}`);
+  const fullPath = basePath + page;
+  console.log(`Navigating to: ${fullPath}`);
+  await loadTemplate(fullPath, 'page-content');
+  console.log(`Finished loading ${fullPath}`);
 }
+
+
+
+// async function navigate(page) {
+//     console.log(`Navigating to: ${page}`);
+//     await loadTemplate(page, 'page-content');
+//     console.log(`Finished loading ${page}`);
+// }
