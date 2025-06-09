@@ -87,6 +87,16 @@ async function loadTemplate(file, containerId) {
 }
 
 
+// click handle
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[data-link]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const page = link.getAttribute('href');
+      navigate(page);
+    });
+  });
+});
 
 
 
@@ -100,6 +110,9 @@ async function navigate(page) {
   await loadTemplate(fullPath, 'page-content');
   console.log(`Finished loading ${fullPath}`);
 }
+
+
+
 
 
 
