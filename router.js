@@ -1,128 +1,93 @@
+async function loadTemplate(file, containerId) {
+    const res = await fetch(file + '?_=' + Date.now()); // cache buster
+    if (!res.ok) {
+        console.error('Failed to load:', file);
+        return;
+    }
 
-
-   async function loadTemplate(file, containerId) {
-    const res = await fetch(file);
     const html = await res.text();
+
     const temp = document.createElement('div');
     temp.innerHTML = html;
+
     const template = temp.querySelector('template');
-    const content = template.content.cloneNode(true);
+    const contentToInject = template ? template.content.cloneNode(true) : temp;
+
     const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    container.appendChild(content);
-  }
 
+    // --- IMPORTANT: Clear ALL old content, including scripts ---
+    // If you truly want to re-run everything, clear the container fully.
+    // If you want to keep *some* scripts, you need a more sophisticated
+    // tracking mechanism (e.g., data attributes on persistent scripts,
+    // and then re-append them before the new content).
+    container.innerHTML = ''; 
 
+    // Append the new template content
+    container.appendChild(contentToInject);
 
-  function navigate(page) {
-    loadTemplate(page, 'page-content');
-  }
+    // --- Process Scripts from the newly injected content ---
+    // We query for scripts *after* contentToInject is appended to the DOM
+    // to ensure we get the actual live script elements.
+    const scripts = container.querySelectorAll('script');
+    let hasExternalScripts = false; // Flag to track if we need to wait for external scripts
 
+    const scriptPromises = []; // To hold promises for external script loading
 
+    scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        
+        // Copy attributes like type, nonce, etc.
+        Array.from(oldScript.attributes).forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+        });
 
-// //   Load the page based on URL hash tp harus satu folder ini works
+        if (oldScript.src) {
+            newScript.src = oldScript.src;
+            if (oldScript.async) newScript.async = true; // Maintain async if originally set
+            if (oldScript.defer) newScript.defer = true; // Maintain defer if originally set
+            hasExternalScripts = true;
 
-  
-//   function handleRoute() {
-//     const page = location.hash.slice(1);
-//     navigate(`${page}.html`);
-//   }
+            // Create a promise that resolves when the script loads or errors
+            scriptPromises.push(new Promise((resolve, reject) => {
+                newScript.onload = () => {
+                    console.log(`External script loaded: ${newScript.src}`);
+                    resolve();
+                };
+                newScript.onerror = () => {
+                    console.error(`Error loading external script: ${newScript.src}`);
+                    reject(); // Or resolve() if you want to proceed even with script errors
+                };
+            }));
+        } else {
+            // Inline script
+            newScript.textContent = oldScript.textContent;
+            console.log('Inline script re-inserted.');
+        }
 
-//   window.addEventListener('hashchange', handleRoute);
-//   window.addEventListener('DOMContentLoaded', handleRoute);
+        // Replace the old script element with the new one
+        oldScript.remove(); // Remove the "old" (just parsed) script element
+        container.appendChild(newScript); // Append the "new" script element to trigger execution
+    });
 
+    // Wait for all external scripts to load if any were present
+    if (hasExternalScripts) {
+        await Promise.all(scriptPromises)
+            .then(() => console.log('All external scripts loaded.'))
+            .catch(() => console.warn('Some external scripts failed to load.')); // Handle errors gracefully
+    }
 
-    window.onload = function () {
-      
-      navigate('home.html'); // Explicit default load
-    };
+    // Call init *after* all scripts (external and inline) have had a chance to execute
+    // and their 'onload' events have fired.
+    if (typeof window.init === 'function') {
+        console.log('Calling window.init()');
+        window.init();
+    } else {
+        console.warn('window.init() function not found. Ensure your dynamically loaded scripts define it.');
+    }
+}
 
-
-
-
-
-
-
-// const routes = {
-//   blog: './blog/blog.html',
-//   resume: './CV/resume.html',
-//   about: './about-me-O_O/about.html',
-// };
-
-// async function loadPage(path) {
-//   try {
-//     const res = await fetch(path);
-//     if (!res.ok) throw new Error('Failed to load page');
-//     const html = await res.text();
-//     document.getElementById('app').innerHTML = html;
-//   } catch (e) {
-//     document.getElementById('app').innerHTML = '<h2>Error loading page</h2>';
-//     console.error(e);
-//   }
-// }
-
-// function router() {
-//   const page = location.hash.replace('#', '') || 'blog'; // default page
-//   const path = routes[page];
-//   if (path) {
-//     loadPage(path);  // <-- Use loadPage here, not navigate
-//   } else {
-//     document.getElementById('app').innerHTML = '<h2>Page not found</h2>';
-//   }
-// }
-
-// window.addEventListener('hashchange', router);
-// window.addEventListener('DOMContentLoaded', router);
-
-
-
-
-
-// seems to worked but still error and  stuff
-
-// router.js
-
-// async function loadTemplate(file, containerId) {
-//   try {
-//     const res = await fetch(file);
-//     if (!res.ok) throw new Error('Failed to load ' + file);
-//     const text = await res.text();
-
-//     const temp = document.createElement('div');
-//     temp.innerHTML = text;
-//     const template = temp.querySelector('template');
-//     if (!template) throw new Error('No <template> found in ' + file);
-
-//     const content = template.content.cloneNode(true);
-//     const container = document.getElementById(containerId);
-//     container.innerHTML = '';
-//     container.appendChild(content);
-
-//   } catch (err) {
-//     console.error(err);
-//     document.getElementById(containerId).innerHTML = `<p>Error loading page.</p>`;
-//   }
-// }
-
-// const routes = {
-//   blog: './blog/blog.html',
-//   resume: './CV/resume.html',
-//   about: './about-me-O_O/about.html',
-// };
-
-// function navigate(path) {
-//   loadTemplate(path, 'page-content');
-// }
-
-// function router() {
-//   const route = location.hash.replace('#', '') || 'blog';
-//   const path = routes[route];
-//   if (path) {
-//     navigate(path);
-//   } else {
-//     document.getElementById('page-content').innerHTML = '<h2>Page not found</h2>';
-//   }
-// }
-
-// window.addEventListener('hashchange', router);
-// window.addEventListener('DOMContentLoaded', router);
+async function navigate(page) {
+    console.log(`Navigating to: ${page}`);
+    await loadTemplate(page, 'page-content');
+    console.log(`Finished loading ${page}`);
+}

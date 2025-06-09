@@ -27,10 +27,3 @@
     });
 
 
-    // To load JS
-    if (jsFile) {
-  const script = document.createElement('script');
-  script.src = jsFile;
-  script.defer = true;
-  document.body.appendChild(script);
-}
