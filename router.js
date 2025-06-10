@@ -86,25 +86,14 @@ async function loadTemplate(file, containerId) {
     }
 }
 
-const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
-// click handle
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a[data-link]').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const page = link.getAttribute('href');
-      const fullPath = basePath + page;
-      navigate(fullPath);
-    });
-  });
-});
+
 
 
 
 
 // Compute base path dynamically (e.g., '/repo-name/')
 // const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
-
+const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
 async function navigate(page) {
   const fullPath = basePath + page;
   console.log(`Navigating to: ${fullPath}`);
