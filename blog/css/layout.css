@@ -1,0 +1,202 @@
+
+
+/* Selector */
+/* Specificity Hierarchy:
+
+Inline styles (added directly to the element) have the highest specificity.
+Then class/element selector with !Important
+ID selectors (e.g., #my-id).
+class with more specificity(e.g., .image .logo)
+Class selectors, attributes selectors, and pseudo-classes (e.g., .my-class, [type="text"], :hover).
+Element selectors and pseudo-elements (e.g., div, ::before).
+
+
+Parent Inline styles
+Parent Class
+Parent Id selectors
+
+
+
+
+
+
+
+
+
+/* -class*/
+/* .big {}
+/* -id */
+/* -element */
+/* -attribute */
+
+/* LAYOUT -terdiri dari dan komponennya*/
+.column{  
+  display: flex; 
+  flex-direction:column;
+  flex-wrap: nowrap;
+  justify-content:space-between;
+  /* align-items: stretch;
+  align-items: stretch; */
+  /* flex: auto; */
+  height: 100%;
+  width: 100%;
+}
+.row{  
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  /* align-content:stretch;
+  align-items: stretch; */
+  width: 100%;
+  height: 100%;
+  /* flex: auto; */
+}
+
+.screenLayout{
+  /* z-index:1; */
+}
+div.screenLayout{
+  width:99%;
+  height:99%;
+  position: fixed;
+  justify-content: center;
+}
+
+
+/* TOPBAR */
+
+.topBar{
+  background-color: rgba(211,94, 23, 0.5);
+  height: 5vh;
+}
+.logo{
+  display: inline-block;
+}
+
+.logo .img{
+  /* max-width: 100%; */
+  object-fit: contain;
+}
+.topBar .expand-area{
+  height: 100%;
+  width: 100%;
+}
+.topBar .mini-area{
+  /* background-color: pink; */
+  width: 10em;
+  direction: rtl;
+}
+
+/* LEFTBAR */
+
+.leftBar{
+  /* top: 0; */
+  width: 3em;
+  height: 100%;
+  overflow: auto;
+  transition: width 0.3s ease;
+}
+
+
+.leftBar:hover{
+ width: 12em;
+}
+
+
+.rightBar{
+  /* background-color: rgba(196, 15, 80, 0.5); */
+  /* width: 10vw; */
+}
+
+.bottomBar{
+   /* background-color: rgba(59, 71, 122, 0.5); */
+   /* height: 10vh; */
+}
+.header{height: 10vh;}
+.aside{}
+.footer{
+  height: 10vh;
+}
+
+.pageLayout{
+  /* background-color: rgba(250, 54, 63, 0.5); */
+  height: 100%;
+}
+
+.main{
+  /* background-color: rgba(105, 206, 175, 0.6); */
+  width: 100%;
+}
+.addPage{
+  /* background-color: rgba(155, 76, 175, 0.6); */
+  height:auto;
+  overflow-y: auto;
+}  
+.topPane{
+}
+.leftPane{
+} 
+.rightPane{
+}
+.bottomPane{
+} 
+.content{
+  /* width: 100%;  */
+  height:100%; 
+  overflow-y: auto;
+}
+
+.grid-container {
+  display: grid;
+  gap: 50px 50px;
+  grid-template-columns: auto auto auto auto;
+  background-color: brown;
+  padding: 20px;
+}
+.grid-item {
+  background-color: rgba(200, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* dekstop */
+/* tab */
+/* phone */
+
+/* Style the footer */
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+/* @media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  } 
+} */
+
+/* Styling CLASS*/
+/* .background1{
+  background: #ffffff url("img_tree.png") no-repeat right top; 
+  background-image: url("img_tree.png"); 
+  background-repeat: no-repeat;
+  background-position: right top;
+  margin-right: 200px;
+  background-attachment: scroll;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+    .container {
+      top: 50px;
+      position: relative;
+      width: 100%;
+      height: 100px; /* Height of the container */
+      background-color: #f0f0f0;
+    }
+
+    .growing-div {
+      position: absolute;
+      top: 0;
+      left: 50%; /* Start from the center horizontally */
+      width: 500px; /* Initial width */
+      height: 100%; /* Full height of container */
+      background-color: #3498db;
+      transform: translateX(-50%); /* This centers the div on the chosen point */
+      transition: width 1s ease;
+    }
+
+    /* Hover effect to grow the div */
+    .container:hover .growing-div {
+      width: 90%; /* Adjust this value to grow it by a desired width */
+    }
+
+  </style>
+  <title>Growing Div</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="growing-div"></div>
+  </div>
+
+</body>
+</html>

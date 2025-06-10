@@ -1,0 +1,3 @@
+-bisa banyak div
+-start dari ngga select baru bisa di edit
+-sudah gabung dan rapi dari file html, css dan jsnya 

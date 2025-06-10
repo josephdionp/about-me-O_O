@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-loading Markdown Blog</title>
+  <style>
+    body { display: flex; margin: 0; font-family: sans-serif; }
+    nav {
+      width: 250px;
+      background: #f4f4f4;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+    }
+    #content { flex-grow: 1; padding: 20px; }
+    a { display: block; padding: 10px 0; color: #333; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Blog Posts</h2>
+    <div id="nav"></div>
+  </nav>
+
+  <div id="content">
+    <h1>Welcome!</h1>
+    <p>Select a blog post from the menu.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    const content = document.getElementById('content');
+
+    // Fetch the list of markdown files
+    fetch('/api/posts')
+      .then(res => res.json())
+      .then(posts => {
+        posts.forEach(filename => {
+          const link = document.createElement('a');
+          link.href = "#";
+          link.textContent = filename.replace('.md', '');
+          link.onclick = (e) => {
+            e.preventDefault();
+            loadMarkdown('/posts/' + filename);
+          };
+          nav.appendChild(link);
+        });
+      });
+
+    function loadMarkdown(file) {
+      fetch(file)
+        .then(res => res.text())
+        .then(md => {
+          content.innerHTML = marked.parse(md);
+        })
+        .catch(err => {
+          content.innerHTML = `<p>Error loading post: ${err.message}</p>`;
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Component Example</title>
+  <style>
+    body { height: 2000px; margin: 0; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Main Page</h1>
+
+  <div id="content"></div>
+
+  <script>
+    async function loadTemplate(file) {
+      const res = await fetch(file);
+      const html = await res.text();
+
+      // Create a container and parse HTML
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+
+      // Extract script if present
+      const script = temp.querySelector('script');
+      if (script) script.remove();
+
+      // Load the content
+      document.getElementById('content').innerHTML = temp.innerHTML;
+
+      // Run the script manually
+      if (script) {
+        const runScript = document.createElement('script');
+        runScript.textContent = script.textContent;
+        document.body.appendChild(runScript);
+      }
+    }
+
+    // Load on page load
+    loadTemplate('about.html');
+  </script>
+</body>
+</html>

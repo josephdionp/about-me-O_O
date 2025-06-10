@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SPA Navigation</title>
+  <style>
+    nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header selector -->
+  <label for="header-select">Choose Header:</label>
+  <select id="header-select">
+    <option value="header1.html">Header 1</option>
+    <option value="header2.html">Header 2</option>
+  </select>
+  <button onclick="loadHeader()">Load Header</button>
+
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" onclick="navigate('home.html')">Home</a>
+    <a href="#" onclick="navigate('about.html')">About</a>
+    <a href="#" onclick="navigate('contact.html')">Contact</a>
+  </nav>
+
+  <!-- Main content -->
+  <div id="page-content"></div>
+
+  <script>
+    async function loadTemplate(file, containerId) {
+      const res = await fetch(file);
+      const html = await res.text();
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const template = temp.querySelector('template');
+      const content = template.content.cloneNode(true);
+
+      const container = document.getElementById(containerId);
+      container.innerHTML = ''; // Clear old content
+      container.appendChild(content);
+    }
+
+    function loadHeader() {
+      const headerFile = document.getElementById('header-select').value;
+      loadTemplate(headerFile, 'header-container');
+    }
+
+    function navigate(page) {
+      loadTemplate(page, 'page-content');
+    }
+
+    // Load default header and home page on start
+    window.onload = function () {
+      loadHeader();
+      navigate('home.html');
+    };
+  </script>
+</body>
+</html>

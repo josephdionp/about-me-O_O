@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Div Visibility</title>
+  <style>
+    div {
+      margin: 10px;
+      padding: 20px;
+      background-color: lightblue;
+      cursor: pointer;
+    }
+    div.selected {
+      border: 2px solid red; /* Highlight selected div */
+    }
+  </style>
+</head>
+<body>
+
+  <button id="resizableButton">Toggle Selected Div</button>
+  <div>This is div 1</div>
+  <div>This is div 2</div>
+  <div>This is div 3</div>
+
+  <script>
+    let selectedDiv = null;  // Initially, no div is selected
+
+    // Add click event listeners to all divs to select them
+    document.querySelectorAll("div").forEach((div) => {
+      div.addEventListener("click", function() {
+        // If the div is already selected, do nothing
+        if (selectedDiv === div){ return;}
+
+        // Reset the previously selected div's visual state
+        if (selectedDiv){ selectedDiv.classList.remove("selected");}
+
+        // Set the clicked div as the selected div
+        selectedDiv = div;
+
+        // Add a visual indication to the selected div
+        div.classList.add("selected");
+      });
+    });
+
+    // Add click event listener to the button
+    document.getElementById("resizableButton").addEventListener("click", function() {
+      if (selectedDiv) {
+        // Toggle the display of the selected div
+        if (selectedDiv.style.display === "none") {
+          selectedDiv.style.display = "block";  // Show it
+        } else {
+          selectedDiv.style.display = "none";   // Hide it
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
