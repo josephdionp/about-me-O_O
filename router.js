@@ -20,7 +20,7 @@ async function loadTemplate(file, containerId) {
     // If you want to keep *some* scripts, you need a more sophisticated
     // tracking mechanism (e.g., data attributes on persistent scripts,
     // and then re-append them before the new content).
-    container.innerHTML = ''; 
+    container.innerHTML = '';
 
     // Append the new template content
     container.appendChild(contentToInject);
@@ -35,7 +35,7 @@ async function loadTemplate(file, containerId) {
 
     scripts.forEach(oldScript => {
         const newScript = document.createElement('script');
-        
+
         // Copy attributes like type, nonce, etc.
         Array.from(oldScript.attributes).forEach(attr => {
             newScript.setAttribute(attr.name, attr.value);
@@ -75,30 +75,25 @@ async function loadTemplate(file, containerId) {
             .then(() => console.log('All external scripts loaded.'))
             .catch(() => console.warn('Some external scripts failed to load.')); // Handle errors gracefully
     }
-
-    // Call init *after* all scripts (external and inline) have had a chance to execute
-    // and their 'onload' events have fired.
-    if (typeof window.init === 'function') {
-        console.log('Calling window.init()');
-        window.init();
-    } else {
-        console.warn('window.init() function not found. Ensure your dynamically loaded scripts define it.');
-    }
 }
-
-
-
-
 
 
 // Compute base path dynamically (e.g., '/repo-name/')
 // const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
-const basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
+
+let basePath = window.location.pathname.split('/').slice(0, -1).join('/') + '/';
 async function navigate(page) {
-  const fullPath = basePath + page;
-  console.log(`Navigating to: ${fullPath}`);
-  await loadTemplate(fullPath, 'page-content');
-  console.log(`Finished loading ${fullPath}`);
+//     let base;
+//     if (base === null || base === undefined) {
+//         base = basePath;
+//     }
+//     basePath = base;
+
+
+    const fullPath = basePath + page;
+    console.log(`Navigating to: ${fullPath}`);
+    await loadTemplate(fullPath, 'page-content');
+    console.log(`Finished loading ${fullPath}`);
 }
 
 

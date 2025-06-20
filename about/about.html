@@ -1,157 +1,108 @@
 <template>
-    
   <section>
 
-<head>
-  <!-- <base href="./about-me-O_O/"> -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="about/style.css" />
-  <link rel="stylesheet" href="about/carousel/carousel.css">
-</head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="about/style.css" />
+    <link rel="stylesheet" href="about/carousel/carousel.css">
 
-<body>
+    <div class="layer">
+      <h2>Hello <br />i'am Joseph</h2>
+      <h1>Web<br />Developer</h1>
+    </div>
+    <section class="section1">
+    </section>
 
-  <div class="layer">
-    <h2>Hello <br />i'am Joseph</h2>
-    <h1>Web<br />Developer</h1>
-  </div>
-  <section class="section1">
-  </section>
+    <section class="section_bio">
+      <h1>Where I Came From..</h1>
+      <div class="wrapper">
+        <a class="card">
+          <div>
+            <h2>Hello I'am Joseph</h2>
+            <br />
+            <p>
+              Summary: I like to try new things and break the limit of native codes, So i can make something new out of it,
+              So if you find something weird yeah it is, but i can handle to code normally as standard.
+              I KEEN ON STABLE CODE and i hate bugs, so i always clean my code later for a stable running. Only a stable
+              code can be developed around it, that's another reason i used native only without framework if possible.
+              I have experienced on PHP and their new framework at that time, a lot of work change of environment and
+              etc. Everything works like magic, but you can't track it down why. The reaso  
+            </p>
+          </div>
+        </a>
 
-  <section class="section_bio">
-    <h1>Where I Came From..</h1>
-    <div class="wrapper">
-      <a class="card">
-        <!-- <img src="" alt="" /> -->
+        <a class="card">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div id="me1_img" class="img overlay"></div>
+              <div class="numbertext">1 / 3</div>
+            </div>
+            <div class="mySlides fade">
+              <div id="me2_img" class="img"></div>
+              <div class="numbertext">2 / 3</div>
+            </div>
+            <div class="mySlides fade">
+              <div id="me3_img" class="img"></div>
+              <div class="numbertext">3 / 3</div>
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">❮</button>
+            <button class="next" onclick="plusSlides(1)">❯</button>
+
+            <div class="dot-container">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+          </div>
+          <br>
+        </a>
+      </div>
+    </section>
+  
+    <section class="section_project">
+      <h1>Just Random Stuff</h1>
+      <div class="wrapper">
+        <a class="card" href="#" onclick="navigate('./blog/blog.html')">
+          <div id="prj1_img" class="img"></div>
+          <p>Blog</p>
+        </a>
+        <a class="card" href="#" onclick="navigate('./CV/resume.html')">
+        <div id="prj2_img" class="img"></div>
+      <p>CV</p>
+      </a>
+      </div>
+    </section>
+
+    <section class="section_contact">
+      <h1>My Contact</h1>
+
+      <div class="wrapper">
         <div>
-          <h2>Hello I'am Joseph</h2>
+          <h2>Open to any Project Contact me via:</h2>
           <br />
           <p>
-            Summary
-            A fairly skilled software engineer who has so-so passion for code(not gonna bluff, being sincere is my thing
-            overall). My expertise lies in front-end development and mechatronics, but I'm more into web development
-            now, where I think maybe i'm quite good in crafting engaging user interfaces using HTML, CSS, and JavaScript.
-
-            I think I'm more into old-school stuff. Like no framework, just code with functional programming, it's just
-            feels right for me. After trial and error of trying to learn stuff, like PHP (CI4/Laravel), Flutter, etc. Finally i found where i belong to, which to develop in
-            Javascript and C with no framework, that suits me the best. .
-
+            Contact(Whatsapp): 081393922953
+            <br>
+            Email: joseputradion@gmail.com
+            <br>
+            Github: <a href="https://github.com/josephdionp">https://github.com/josephdionp</a>
           </p>
         </div>
-      </a>
+        <div class="mapouter">
 
-
-      <a class="card">
-        <div class="slideshow-container">
-
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img id="me1_img">
-            <!-- <div class="text">Caption Text</div> -->
+          <div class="gmap_canvas">
+            <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31622.985314746296!2d110.35424535766428!3d-7.803249951880102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x21723fd4d3684f71!2sYogyakarta%2C%20Yogyakarta%20City%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1749010174495!5m2!1sen!2sid"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <div id="me2_img"></div>
-            <!-- <img src="./assets/img/me_2.jpg" alt="" style="width:100%"> -->
-            <!-- <div class="text">Caption Two</div> -->
-          </div>
-
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <div id="me3_img"></div>
-            <!-- <div class="text">Caption Three</div> -->
-          </div>
-
-          <button class="prev" onclick="plusSlides(-1)">❮</button>
-          <button class="next" onclick="plusSlides(1)">❯</button>
-        </div>
-      </a>
-    </div>
-
-  </section>
-  <section class="section_project">
-    <h1>Just Random Stuff</h1>
-    <div class="wrapper">
-      <a class="card" href="#" onclick="navigate('./blog/blog.html')">
-        <!-- <img src="./assets/img/projec1.png" alt="" /> -->
-         <div id="prj1_img"></div>
-        <p>Blog</p>
-      </a>
-      <a class="card" href="#" onclick="navigate('./CV/resume.html')"">
-        <!-- <img src="./assets/img/projec2.png" alt="" /> -->
-        <div id="prj2_img"></div>
-        <p>CV</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="section_contact">
-    <h1>My Contact</h1>
-
-    <div class="wrapper">
-      <div>
-        <h2></h2>
-        <br />
-        <p>
-          Contact(Whatsapp): 081393922953
-          <br>
-          Email: joseputradion@gmail.com
-          <br>
-          Blog:
-        </p>
-      </div>
-      <div class="mapouter">
-
-        <div class="gmap_canvas">
-          <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31622.985314746296!2d110.35424535766428!3d-7.803249951880102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x21723fd4d3684f71!2sYogyakarta%2C%20Yogyakarta%20City%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1749010174495!5m2!1sen!2sid"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
+    <script src="./about/slide.js" defer></script>
+    <script src="./about/carousel/carousel.js" defer></script>
 
-
-    <script src="/path/to/external-script-for-this-page.js" async></script>
-    <script>
-        // This is an inline script.
-        // It should define or contribute to window.init, or
-        // contain logic that runs immediately.
-        console.log("Inline script for this page is running.");
-
-        if (typeof window.init === 'undefined') {
-            window.init = function() {
-                console.log("window.init() called from dynamic template.");
-                // Any page-specific initialization logic goes here.
-                const element = document.getElementById('some-element');
-                if (element) {
-                    element.textContent = "Content initialized!";
-                }
-            };
-        } else {
-             // If window.init already exists from a previous page load,
-             // you might extend it or replace it depending on your needs.
-             // For a page load, often you want to replace it.
-             window.init = function() {
-                console.log("window.init() re-defined and called from dynamic template.");
-                const element = document.getElementById('some-element');
-                if (element) {
-                    element.textContent = "Content initialized again!";
-                }
-             };
-        }
-    </script>
-  
-  <script src="./about/slide.js" defer></script>
-  <script src="./about/carousel/carousel.js" defer></script>
-</body>
 
 
   </section>

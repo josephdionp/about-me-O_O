@@ -11,9 +11,18 @@
   --prj-image2:url("assets/img/projec2.png");
 }
 
-div #me1_img,#me2_img,#me3_img, #prj1_img, #prj2_img{
+#me1_img,
+#me2_img,
+#me3_img, 
+#prj1_img, 
+#prj2_img{
   background-size: cover;
   /* background-attachment: fixed; */
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+
 }
 
 #me1_img{background-image: var(--me-image1);}
@@ -29,24 +38,17 @@ div #me1_img,#me2_img,#me3_img, #prj1_img, #prj2_img{
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  
+   box-sizing: border-box 
+
 }
 
-/* body {
-  display: inline-block;
-  border : 1px solid ;
-  width: 100%;
-  overflow-x: hidden;
-} */
-
 div{
-  /* width: 100%; 
-  height: 100%; */
-  /* box-sizing: border-box; */
+}
+
+img {
 }
 
 section {
-  /* width: 100%;     */
   height: 100%;
   background: var(--bg-image1);
   background-size: cover;
@@ -73,6 +75,9 @@ h2 {
   background-attachment: fixed;
   background-clip: text;
   color: transparent;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+
 }
 
 .layer {
@@ -99,16 +104,18 @@ section.section1{
 section.section_bio{
   padding: 10%;
   color: white;
-  background: var(--bg-image2);
+  background-image: var(--bg-image2);
   background-size: cover;
   background-attachment: fixed;
+      /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 /* ============ section 3 */
 section.section_project {
   /* height: 200vh; */
   padding: 10%;
   color: white;
-  background: var(--bg-image2);
+  background-image: var(--bg-image2);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -137,16 +144,31 @@ section.section_project {
   padding: 15px;
   border-radius: 10px;
   background-color: #ffffffc3;
+  min-height: 300px;
 }
 
-.wrapper .card img {
+.wrapper .img {
+  /* position: relative; */
   width: 100%;
   transition: 0.3s;
+  height: 100%;
 }
 
-.wrapper .card:hover img {
+.wrapper .card:hover .img {
   transform: scale(0.95);
+ transition: transform 0.3s ease;
 }
+/* 
+.overlay {
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  position: absolute;
+}
+
+.overlay:hover {
+  opacity: 1;
+} */
 
 /* ============ section 4 */
 .section_contact {
