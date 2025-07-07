@@ -1,13 +1,27 @@
-<template>
-  <section>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="about/style.css" />
-    <link rel="stylesheet" href="about/carousel/carousel.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="carousel/carousel.css">
+  <style>
+    #changing-word {
+      font-size: 2em;
+      font-weight: bold;
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
 
+</head>
+<body>
     <div class="layer">
-      <h2>Hello <br />i'am Joseph</h2>
-      <h1>Web<br />Developer</h1>
+      <h2>Hello <br />i'am</h2> <h2>a</h2>
+      <!-- <h1>Web<br/>Developer</h1> -->
+      <h1><span id="changing-word">a Web Developer</span></h1>
     </div>
     <section class="section1">
     </section>
@@ -17,7 +31,7 @@
       <div class="wrapper">
         <a class="card">
           <div>
-            <h2>Hello I'am Joseph</h2>
+            <h2>I'am Joseph</h2>
             <br />
             <p>
               Summary: I like to try new things and break the limit of native codes, So i can make something new out of it,
@@ -25,7 +39,7 @@
               I KEEN ON STABLE CODE and i hate bugs, so i always clean my code later for a stable running. Only a stable
               code can be developed around it, that's another reason i used native only without framework if possible.
               I have experienced on PHP and their new framework at that time, a lot of work change of environment and
-              etc. Everything works like magic, but you can't track it down why. The reaso  
+              etc. Everything works like magic, but you can't track it down why. 
             </p>
           </div>
         </a>
@@ -100,10 +114,22 @@
     </section>
 
 
-    <script src="./about/slide.js" defer></script>
-    <script src="./about/carousel/carousel.js" defer></script>
+    <script src="slide.js" defer></script>
+    <script src="carousel/carousel.js" defer></script>
+<script>
+    const words = ["Curious","Mechatronics", "Innovative", "Engineer", "Creative", "Web Developer"];
+    let index = 0;
+    const wordElement = document.getElementById("changing-word");
 
+    setInterval(() => {
+      wordElement.style.opacity = 0;
+      setTimeout(() => {
+        index = (index + 1) % words.length;
+        wordElement.textContent = words[index];
+        wordElement.style.opacity = 1;
+      }, 500);
+    }, 2000);
+  </script>
 
-
-  </section>
-</template>
+</body>
+</html>

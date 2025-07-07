@@ -27,3 +27,21 @@
     });
 
 
+
+    // #nav-wrapper {
+    //   background-color: #333;
+    //   padding: 10px;
+    //   color: white;
+    // }
+    // #nav-menu {
+    //   display: none;
+    // }
+    // #nav-menu a {
+    //   color: white;
+    //   margin: 0 10px;
+    //   text-decoration: none;
+    // }
+    // #nav-menu.show {
+    //   display: block;
+    // }
+  

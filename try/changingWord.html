@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changing Word</title>
+  <style>
+    #changing-word {
+      font-size: 2em;
+      font-weight: bold;
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <p>I am <span id="changing-word">Creative</span></p>
+
+  <script>
+    const words = ["Creative", "Smart", "Bold", "Curious", "Driven"];
+    let index = 0;
+    const wordElement = document.getElementById("changing-word");
+
+    setInterval(() => {
+      wordElement.style.opacity = 0;
+      setTimeout(() => {
+        index = (index + 1) % words.length;
+        wordElement.textContent = words[index];
+        wordElement.style.opacity = 1;
+      }, 500);
+    }, 2000);
+  </script>
+</body>
+</html>

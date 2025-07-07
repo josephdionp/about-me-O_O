@@ -1,0 +1,6 @@
+
+    #changing-word {
+      font-size: 2em;
+      font-weight: bold;
+      transition: opacity 0.5s ease-in-out;
+    }

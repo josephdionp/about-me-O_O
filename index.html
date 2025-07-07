@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
- <link rel="icon" type="image/x-icon" href="/icon/favicon2_io/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/icon/favicon2_io/favicon.ico">
 
  <link rel="stylesheet" href="style.css">
+
+ <style>  iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }</style>
 </head>
 <body>
-  
 
   <!-- Floating draggable & transparent nav -->
   <div id="nav-wrapper">
     <button id="toggle-btn">☰ Menu</button>                                                     
     <nav id="nav-menu">
-      <a onclick="navigate('about/about.html')">🏠 About</a>
-      <a onclick="navigate('blog/blog.html')">ℹ️ Blog</a>
-      <a onclick="navigate('cv/resume.html')">📧 Resume</a>
+      <a  href="/about" data-route>🏠 About</a>
+      <a  href="/blog" data-route>ℹ️ Blog</a>
+      <a  href="/cv" data-route>📧 Resume</a>
     </nav>
   </div>
 
   <!-- Main content -->
-  <div id="page-content"></div>
-  <div id="script-area"></div>
+   <iframe id="content-frame" src="">
+     <Title>Home</Title>
+   </iframe>
+  <!-- <div id="page-content">
+    
+ 
+
+  </div>
+  <div id="script-area"></div> -->
 
 
-  <script src="nav-style.js" defer></script>
-  <script src="router.js" defer></script>
+  <script src="nav-style.js" type="module" defer></script>
+  <script src="router.js" type="module" defer></script>
 </body>
 </html>

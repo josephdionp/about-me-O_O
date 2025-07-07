@@ -1,0 +1,6 @@
+{
+    "blog": { "path": "blog/blog.html" },
+    "about": { "path": "about/about.html" },
+    "home": { "path": "./home.html" },
+    "cv": { "path": "cv/resume.html" }
+}
