@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<script>//trial of changing pathname
+  const base = document.createElement('base');
+  base.href = location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1);
+  document.head.appendChild(base);
+</script>
+</head>
+<body>
+    <title>My Blog..&lt;3 </title>
+    <!-- <link rel="stylesheet" type="text/css" href="./blog/css/main.css"> -->
+     <link rel="stylesheet" href="1.css">
+
+
+  <nav id="nav">
+    <h2>Blog Posts</h2>
+    <!-- Links will be inserted here -->
+  </nav>
+
+  <div id="content">
+    <h1>Welcome to the Blog</h1>
+    <p>Select a post from the navigation.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="1.js" defer></script>
+
+  
+</body>
+</html>
