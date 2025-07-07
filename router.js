@@ -83,7 +83,7 @@
       document.getElementById('content-frame').src = path;
       // console.log('current pash:', path);
       console.log('current hash:', hash);
-      history.replaceState(null, '', `${hash}`);
+      // history.replaceState(null, '', `${hash}`);
       // history.pushState(null, '', '/about');
 
     }
