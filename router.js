@@ -71,27 +71,53 @@
 //   }
 
 
-    const routes = {
-      'about': '/about/index.html',
-      'blog': '/blog/index.html',
-      'cv': '/cv/index.html'
-    };
-
-    function loadRouteFromHash() {
-      const hash = window.location.hash.replace(/^#/, '') || 'about';
-      const path = routes[hash] || routes['about'];
-      document.getElementById('content-frame').src = path;
-      // console.log('current pash:', path);
-      // console.log('current hash:', hash);
-      // history.replaceState(null, '', `${hash}`);
-      // history.pushState(null, '', '/about');
-
-    }
-
-    window.addEventListener('hashchange', loadRouteFromHash);
-    window.addEventListener('DOMContentLoaded', loadRouteFromHash);
 
 
-// console.log('current path:', window.location.pathname);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+const routes = {
+  'about': 'about/index.html',
+  'blog': 'blog/index.html',
+  'cv': 'cv/index.html'
+};
+
+function loadRouteFromHash() {
+  const hash = window.location.hash.replace(/^#/, '') || 'about';
+  const path = routes[hash] || routes['about'];
+
+  const iframe = document.getElementById('content-frame');
+  iframe.src = path;
+
+  // Correctly update history
+  history.replaceState(null, null, `${hash}`);
+
+  // Attach iframe onload once
+  iframe.onload = function () {
+    updateTitle();
+  };
+}
+
+function updateTitle() {
+  const iframe = document.getElementById("content-frame");
+  try {
+    document.title = iframe.contentDocument.title;
+  } catch (e) {
+    console.error('Unable to access iframe content due to cross-origin restrictions.', e);
+  }
+}
+
+window.addEventListener('hashchange', loadRouteFromHash);
+window.addEventListener('DOMContentLoaded', loadRouteFromHash);
