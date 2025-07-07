@@ -72,9 +72,9 @@
 
 
     const routes = {
-      'about': 'about/index.html',
-      'blog': 'blog/index.html',
-      'cv': 'cv/index.html'
+      'about': '/about/index.html',
+      'blog': '/blog/index.html',
+      'cv': '/cv/index.html'
     };
 
     function loadRouteFromHash() {
@@ -82,7 +82,7 @@
       const path = routes[hash] || routes['about'];
       document.getElementById('content-frame').src = path;
       // console.log('current pash:', path);
-      console.log('current hash:', hash);
+      // console.log('current hash:', hash);
       // history.replaceState(null, '', `${hash}`);
       // history.pushState(null, '', '/about');
 
