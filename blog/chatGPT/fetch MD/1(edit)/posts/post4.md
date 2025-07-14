@@ -1,5 +1,0 @@
-aku sayang 
-
-
-
-kyaaa

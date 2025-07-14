@@ -19,9 +19,19 @@
 </head>
 <body>
     <div class="layer">
-      <h2>Hello <br />i'am</h2> <h2>a</h2>
-      <!-- <h1>Web<br/>Developer</h1> -->
-      <h1><span id="changing-word">a Web Developer</span></h1>
+      <h2>Hello <br />
+         
+      <div id="TW-words" style="display: none">
+  <span>Designer</span>
+  <span>Engineer</span>
+  <span>Web Developer</span>
+  <span>Mechatronics</span>
+  <span>Programmer</span>
+  <span>Creator</span>
+  
+</div>
+
+<h1>I am <span id="TW-article"></span> <span id="TW-typed-word"></span><span id="TW-cursor">|</span></h1>
     </div>
     <section class="section1">
     </section>
@@ -38,8 +48,6 @@
               So if you find something weird yeah it is, but i can handle to code normally as standard.
               I KEEN ON STABLE CODE and i hate bugs, so i always clean my code later for a stable running. Only a stable
               code can be developed around it, that's another reason i used native only without framework if possible.
-              I have experienced on PHP and their new framework at that time, a lot of work change of environment and
-              etc. Everything works like magic, but you can't track it down why. 
             </p>
           </div>
         </a>
@@ -112,24 +120,10 @@
         </div>
       </div>
     </section>
-
-
+    
+    <script type="module" src="TypeWriting/typeWriting.js"></script>
     <script src="slide.js" defer></script>
     <script src="carousel/carousel.js" defer></script>
-<script>
-    const words = ["Curious","Mechatronics", "Innovative", "Engineer", "Creative", "Web Developer"];
-    let index = 0;
-    const wordElement = document.getElementById("changing-word");
-
-    setInterval(() => {
-      wordElement.style.opacity = 0;
-      setTimeout(() => {
-        index = (index + 1) % words.length;
-        wordElement.textContent = words[index];
-        wordElement.style.opacity = 1;
-      }, 500);
-    }, 2000);
-  </script>
 
 </body>
 </html>
