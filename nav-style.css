@@ -1,67 +1,108 @@
- html, body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-  
-    }
+ html,
+ body {
+   font-family: 'Segoe UI', sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   /* overflow: hidden;  */
+ }
 
-    /* Floating Nav */
-    #nav-wrapper {
-      /* top: 20px; 
-      left: 20px; */
-      z-index: 999;
-      background: rgba(255, 255, 255, 0.1); /* transparent white */
-      -webkit-backdrop-filter: blur(10px); /* for Safari */
-      backdrop-filter: blur(10px); 
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      padding: 10px;
-      width: 200px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      /* cursor: pointer;     */
-      cursor: grab;
-      position: absolute;
-      will-change: left, top;
-      transition: none;
-      /* user-select: none; */
-    }
+ /* Floating Nav */
+ #nav-wrapper {
+   position: absolute;
+   z-index: 999;
+   background: rgba(255, 255, 255, 0.1);
+   -webkit-backdrop-filter: blur(10px);
+   /* for Safari */
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.3);
+   border-radius: 12px;
+   padding: 10px;
+   width: 200px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+   transition: none;
+   cursor: grab;
+ }
 
-    #nav-wrapper:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
+ #nav-wrapper:hover {
+   background: rgba(255, 255, 255, 0.2);
+ }
 
-    #nav-menu {
-      display: none;
-      flex-direction: column;
-      margin-top: 10px;
-    }
+ #nav-menu {
+   display: none;
+   flex-direction: column;
+   margin-top: 10px;
+ }
 
-    nav a {
-      font-size: 18px;
-      font-weight: 500;
-      color: #333;
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
+ #nav-wrapper:hover #nav-menu {}
 
-    nav a:hover {
-      background: rgba(0, 123, 255, 0.1);
-    }
+ nav a {
+   font-size: 18px;
+   font-weight: 500;
+   color: #333;
+   padding: 10px;
+   border-radius: 8px;
+   text-decoration: none;
+ }
 
-    #toggle-btn {
-      background: rgba(0, 123, 255, 0.8);
-      color: white;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 8px 12px;
-      width: 100%;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-    
-#nav-wrapper:active {
-  cursor: grabbing;
+ nav a:hover {
+   background: rgba(0, 123, 255, 0.1);
+ }
+
+ #page-content {}
+
+ #nav-wrapper:active {
+   cursor: grabbing;
+ }
+
+ .button-group {
+   display: flex;
+   flex-direction: row;
+   gap: 2px;
+   margin-top: 10px;
+ }
+
+ .button-group button {
+   cursor: pointer;
+ }
+
+
+ #menu-btn {
+   flex: 6;
+   background: rgba(0, 123, 255, 0.8);
+   color: white;
+   border: none;
+   font-size: 16px;
+   font-weight: bold;
+   padding: 8px 12px;
+   width: 100%;
+   cursor: pointer;
+   border-radius: 8px 0px 0px 8px;
+ }
+
+ #hide-button {
+   flex: 1;
+   border-radius: 0px 8px 8px 0px;
+   z-index: 1100;
+   border: none;
+   /* padding: 10px;
+   border-radius: 4px; */
+   cursor: pointer;
+ }
+
+ #nav-wrapper.hidden {
+   /* position: fixed; */
+   left: 0 !important;
+   transition: left 0.5s ease;
+   border-radius: 12px;
+   padding: 5px;
+   width: 60px;
+ }
+
+ .icon {
+  height: 100%;
+  width: 100%;         
+  object-fit: contain; 
+  background-color: transparent;
+  display: block;
 }

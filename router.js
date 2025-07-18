@@ -1,6 +1,8 @@
 
+
 const routes = {
   'about': 'about/index.html',
+  'blog': 'blog/index.html',
   'cv': 'cv/index.html'
 };
 

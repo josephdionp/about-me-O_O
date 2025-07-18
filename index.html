@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="/icon/favicon2_io/favicon.ico">
-
- <link rel="stylesheet" href="nav-style.css">
-<Title>Home</Title>
-
+  <link rel="stylesheet" href="nav-style.css">
+  <Title>Home</Title>
 </head>
+
 <body>
-  
+
   <!-- Floating draggable & transparent nav -->
   <div id="nav-wrapper">
-    <button id="toggle-btn">☰ Menu</button>                                                     
+    
+    <div class="button-group">
+    <button id="menu-btn">☰ Menu</button>
+    <button id="hide-button" aria-label="Toggle button for navigation bar hide to left"
+      title="toggle button for navigation bar hide to left">
+      <img id="toggle-icon" class="icon" src="icon/double-arrow-left.png" aria-hidden="true"></img>
+    </button>
+    </div>
     <nav id="nav-menu">
-      <a  href="#about" data-route>🏠 Home</a>
-      <a  href="#cv" data-route>📧 CV</a>
+      <a href="#about" data-route>🏠 Home</a>
+      <a href="#cv" data-route>📧 CV</a>
     </nav>
   </div>
 
   <!-- Main content -->
-   <iframe id="content-frame" src="" title="Content" style="width: 100%; height: 100vh; border: none;" >
-   
-   </iframe>
-  <!-- <div id="page-content">
-    
- 
-
-  </div>
-  <div id="script-area"></div> -->
+  <iframe id="content-frame" src="" title="Content" style="width: 100%; height: 100%; border: none;  display: block;">
+  </iframe>
 
 
   <script src="nav-move.js" type="module" defer></script>
   <script src="router.js" type="module" defer></script>
 </body>
+
 </html>
