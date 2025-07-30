@@ -43,6 +43,11 @@
   background-image: var(--prj-image2);
 }
 
+#changing-word {
+  font-size: 2em;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+}
 
 
 * {
@@ -61,6 +66,7 @@ section {
   background: var(--bg-image1);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 }
 
 /* ============ layer */
@@ -82,6 +88,7 @@ h2 {
   background-size: cover;
   background-attachment: fixed;
   background-clip: text;
+  background-position: center;
   color: transparent;
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
@@ -117,6 +124,7 @@ section.section_bio {
   background-image: var(--bg-image2);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
 }
@@ -129,6 +137,7 @@ section.section_project {
   background-image: var(--bg-image2);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 }
 
 .section_project h1 {
@@ -144,19 +153,32 @@ section.section_project {
   position: relative;
   border-radius: 20px;
   padding: 3%;
-  display: grid;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
   gap: 20px;
   grid-template-columns: 1fr 1fr;
   background-color: #ffffff70;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .wrapper {
     grid-template-columns: 1fr;
     /* Stack items vertically */
+    flex-direction: column; 
+    }
+    .layer h2 {
+      font-size: 1em;
+    }
+
+    .layer h1 {
+      font-size: 3em;
+    }
+  
+  #changing-word {
+    font-size: 1.5em;
   }
 }
-
 
 .wrapper .card {
   color: #111;
@@ -164,14 +186,18 @@ section.section_project {
   border-radius: 10px;
   background-color: #ffffffc3;
   min-height: 300px;
+  min-width: 40%;
+
 }
 
 .wrapper .img {
   /* position: relative; */
   width: 100%;
   transition: 0.3s;
-  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
 }
+
 
 .wrapper .card:hover .img {
   transform: scale(0.95);
